@@ -1,0 +1,19 @@
+{
+    "categorias": [{
+        "id": 1,
+        "titulo": "Mitologia Grega",
+        "descricao": "A História de Poseidon o poderoso Deus dos mares",
+        "cor": "#6BD1FF"
+    }],
+    "videos": [{
+            "categoria": 1,
+            "titulo": "O poderoso Deus dos mares",
+            "url": "https://www.youtube.com/watch?v=J_fg5ixpXi0"
+        },
+        {
+            "categoria": 1,
+            "titulo": "A História de Poseidon",
+            "url": "https://www.youtube.com/watch?v=syZUHxaBSV4"
+        }
+    ]
+}

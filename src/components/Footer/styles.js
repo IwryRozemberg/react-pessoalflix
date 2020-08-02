@@ -9,9 +9,9 @@ export const FooterBase = styled.footer`
   text-align: center;
   font-weight: 300;
 
+
   .DestakText{
     color: var(--primary);
-  font-weight: bold;
   }
 
   @media (max-width: 800px) {

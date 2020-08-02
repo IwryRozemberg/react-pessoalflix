@@ -16,7 +16,7 @@ function Categoria() {
   const [categoria, setCategoria] = useState(categoriaType);
 
   useEffect(() => {
-    const url = process.env.PUBLIC_URL || `http://localhost:8080`;
+    const url = process.env.API_URL || `http://localhost:8080`;
     fetch(`${url}/categorias`).then(async (responseServer) => {
       const resposeJson = await responseServer.json();
       if (responseServer.ok) setCategoriasList([...resposeJson]);

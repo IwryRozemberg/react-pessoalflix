@@ -1,104 +1,97 @@
 import React, { useState, useEffect } from 'react';
-import Default from '../../../components/templates/Default';
+
+import useForm from '../../../hooks/useForm';
+import { getAll } from '../../../services/categorias';
 
 import { Form, FormGroup, FormHeader, Table } from './styles';
-import { Button } from '../../../components/Button';
-import FormField from '../../../components/FormField';
 
-function Categoria() {
+import Default from '../../../components/templates/Default';
+import FormField from '../../../components/FormField';
+import { Button } from '../../../components/Button';
+
+function Categorias() {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  const categoriaType = {
+  const valuesInit = {
     titulo: '',
     descricao: '',
     cor: '#' + randomColor,
   };
-  const [categoriasList, setCategoriasList] = useState([]);
-  const [categoria, setCategoria] = useState(categoriaType);
+  const [categorias, setCategorias] = useState([]);
+  const { modelValues, clearForm, onChange } = useForm(valuesInit);
 
   useEffect(() => {
-    const url = process.env.API_URL || `http://localhost:8080`;
-    fetch(`${url}/categorias`).then(async (responseServer) => {
-      const resposeJson = await responseServer.json();
-      if (responseServer.ok) setCategoriasList([...resposeJson]);
-    });
+    getAll()
+      .then((response) => setCategorias([...response]))
+      .catch((err) => console.log(err));
   }, []);
-
-  function setValues(event) {
-    const {
-      currentTarget: { name, value },
-    } = event;
-    setCategoria({ ...categoria, [name]: value });
-  }
 
   return (
     <Default>
       <Form
         onSubmit={(event) => {
           event.preventDefault();
-          setCategoriasList([...categoriasList, categoria]);
-          setCategoria(categoriaType);
+          setCategorias([...categorias, modelValues]);
+          clearForm();
         }}
       >
         <FormGroup>
-          <FormHeader>Cadastro de Categoria</FormHeader>
+          <FormHeader>Cadastro de Categorias</FormHeader>
           <FormField
             label="Título"
             type="text"
             name="titulo"
-            value={categoria.titulo}
-            onChange={setValues}
+            value={modelValues.titulo}
+            onChange={onChange}
           />
           <FormField
             label="Descrição"
             type="textarea"
             name="descricao"
-            value={categoria.descricao}
-            onChange={setValues}
+            value={modelValues.descricao}
+            onChange={onChange}
           />
           <FormField
             label="Cor"
             type="color"
             name="cor"
-            value={categoria.cor}
-            onChange={setValues}
+            value={modelValues.cor}
+            onChange={onChange}
           />
           <Button className="ButtonSubmit">Cadastrar</Button>
         </FormGroup>
       </Form>
       {/* <Form>
         <FormGroup>
-          <FormHeader>Lista de Categorias</FormHeader> */}
-          <Table cellspacing="0" cellpadding="0">
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderColumn>Título</Table.HeaderColumn>
-                <Table.HeaderColumn>Descrição</Table.HeaderColumn>
-                <Table.HeaderColumn>Cor</Table.HeaderColumn>
-                <Table.HeaderColumn>Ações</Table.HeaderColumn>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {categoriasList.map((value) => (
-                <Table.Row key={value.titulo}>
-                  <Table.Column>{value.titulo}</Table.Column>
-                  <Table.Column>{value.descricao}</Table.Column>
-                  <Table.Column
-                    style={{ background: value.cor, color: '#000000' }}
-                  >
-                    {value.cor}
-                  </Table.Column>
-                  <Table.Column className="ActionsColumn">
-                    <Button className="Actions">Editar</Button>
-                    <Button className="Actions">Remover</Button>
-                  </Table.Column>
-                </Table.Row>
-              ))}
-            </Table.Body>
-          </Table>
-        {/* </FormGroup>
+          <FormHeader>Lista de valuess</FormHeader> */}
+      <Table cellspacing="0" cellpadding="0">
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderColumn>Título</Table.HeaderColumn>
+            <Table.HeaderColumn>Descrição</Table.HeaderColumn>
+            <Table.HeaderColumn>Cor</Table.HeaderColumn>
+            <Table.HeaderColumn>Ações</Table.HeaderColumn>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {categorias.map((value) => (
+            <Table.Row key={value.titulo}>
+              <Table.Column>{value.titulo}</Table.Column>
+              <Table.Column>{value.descricao}</Table.Column>
+              <Table.Column style={{ background: value.cor, color: '#000000' }}>
+                {value.cor}
+              </Table.Column>
+              <Table.Column className="ActionsColumn">
+                <Button className="Actions">Editar</Button>
+                <Button className="Actions">Remover</Button>
+              </Table.Column>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+      {/* </FormGroup>
       </Form> */}
     </Default>
   );
 }
 
-export default Categoria;
+export default Categorias;

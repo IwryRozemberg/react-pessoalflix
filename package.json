@@ -18,7 +18,7 @@
         "server": "node ./server.js",
         "start-dev": "react-scripts start",
         "start": "yarn run server",
-        "build": "react-scripts build && vercel --prod",
+        "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },

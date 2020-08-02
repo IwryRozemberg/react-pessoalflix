@@ -11,8 +11,8 @@ function Footer() {
         <img className="Logo" src={Logo} alt="PoseidooMFlix Logo" />
       </Link>
       <p>
-        Orgulhosamente criado durante a{' '}
-        <a href="https://www.alura.com.br/">Imersão React da Alura</a>
+        Criado durante a{' '}
+        <strong><a href="https://www.alura.com.br/">#ImensãoReact</a></strong> da <strong className="DestakText">Alura</strong>
       </p>
     </FooterBase>
   );

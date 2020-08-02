@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Default from '../../../components/templates/Default';
 
-import { Form, FormGroup, FormHeader } from './styles';
+import { Form, FormGroup, FormHeader, Table } from './styles';
 import { Button } from '../../../components/Button';
 import FormField from '../../../components/FormField';
-
-import dataList from '../../../data/dados_iniciais.json';
 
 function Categoria() {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -18,10 +16,10 @@ function Categoria() {
   const [categoria, setCategoria] = useState(categoriaType);
 
   useEffect(() => {
-    const url = `http://localhost:8080/categorias`;
-    fetch(url).then(async (responseServer) => {
+    const url = process.env.PUBLIC_URL || `http://localhost:8080`;
+    fetch(`${url}/categorias`).then(async (responseServer) => {
       const resposeJson = await responseServer.json();
-      setCategoriasList([...categoriasList, ...resposeJson]);
+      if (responseServer.ok) setCategoriasList([...resposeJson]);
     });
   }, []);
 
@@ -66,16 +64,39 @@ function Categoria() {
           />
           <Button className="ButtonSubmit">Cadastrar</Button>
         </FormGroup>
-
-        <FormGroup>
-          <FormHeader>Lista de Categorias</FormHeader>
-          <ul>
-            {categoriasList.map((value) => (
-              <li key={value.titulo}>{value.titulo}</li>
-            ))}
-          </ul>
-        </FormGroup>
       </Form>
+      {/* <Form>
+        <FormGroup>
+          <FormHeader>Lista de Categorias</FormHeader> */}
+          <Table cellspacing="0" cellpadding="0">
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderColumn>Título</Table.HeaderColumn>
+                <Table.HeaderColumn>Descrição</Table.HeaderColumn>
+                <Table.HeaderColumn>Cor</Table.HeaderColumn>
+                <Table.HeaderColumn>Ações</Table.HeaderColumn>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {categoriasList.map((value) => (
+                <Table.Row key={value.titulo}>
+                  <Table.Column>{value.titulo}</Table.Column>
+                  <Table.Column>{value.descricao}</Table.Column>
+                  <Table.Column
+                    style={{ background: value.cor, color: '#000000' }}
+                  >
+                    {value.cor}
+                  </Table.Column>
+                  <Table.Column className="ActionsColumn">
+                    <Button className="Actions">Editar</Button>
+                    <Button className="Actions">Remover</Button>
+                  </Table.Column>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        {/* </FormGroup>
+      </Form> */}
     </Default>
   );
 }

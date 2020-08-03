@@ -11,13 +11,8 @@ function Home() {
   useEffect(() => {
     getAllWithVideos()
       .then((categoriasComVideos) => {
-        console.log(categoriasComVideos);
         setCategorias([...categoriasComVideos]);
-      })
-      .catch((err) => {
-        console.log(err.message);
       });
-    console.log(categorias);
   }, []);
 
   return (

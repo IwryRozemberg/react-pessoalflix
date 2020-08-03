@@ -42,7 +42,7 @@ export const Input = styled.input`
   border: 0;
   border-top: 4px solid var(--blackLighter);
   border-bottom: 4px solid var(--blackLighter);
- /* #53585d */
+  /* #53585d */
   padding: 16px 16px;
   margin-bottom: 45px;
 
@@ -75,3 +75,7 @@ export const Input = styled.input`
     );
   }}
 `;
+
+export const DataList = styled.datalist``;
+
+export const Option = styled.option``;

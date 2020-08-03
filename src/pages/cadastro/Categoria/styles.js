@@ -62,3 +62,26 @@ Table.HeaderColumn = styled.th`
   border-bottom: 4px solid var(--primary);
   font-size: 20px;
 `;
+
+
+export const ButtonGroup = styled.div`
+  flex: 1;
+  float: right;
+  
+  .ButtonForm {
+    background: var(--blackLighter);
+    color: var(--black);
+    border-color: var(--blackLighter);
+  }
+  .ButtonSubmit {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+  }
+
+  .ButtonForm + .ButtonForm {
+    margin-left: 10px;
+  }
+
+
+`;

@@ -5,18 +5,19 @@ import { getAllWithVideos } from '../../services/categorias';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import Default from '../../components/templates/Default';
+import Load from '../../components/Load';
 function Home() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
-    getAllWithVideos()
-      .then((categoriasComVideos) => {
-        setCategorias([...categoriasComVideos]);
-      });
+    getAllWithVideos().then((categoriasComVideos) => {
+      setCategorias([...categoriasComVideos]);
+    });
   }, []);
 
   return (
     <Default>
+      {categorias.length ===0 && <Load numberDots={5} />}
       {categorias.length >= 1 && (
         <>
           <BannerMain

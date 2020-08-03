@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import useForm from '../../../hooks/useForm';
 import {
@@ -14,7 +15,7 @@ import { Form, FormGroup, FormHeader, Table, ButtonGroup } from './styles';
 import Default from '../../../components/templates/Default';
 import FormField from '../../../components/FormField';
 import { Button } from '../../../components/Button';
-import { Link } from 'react-router-dom';
+import Load from '../../../components/Load';
 
 function Categorias() {
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -54,6 +55,7 @@ function Categorias() {
 
   return (
     <Default>
+      {categorias.length === 0 && <Load numberDots={5} />}
       <Form
         onSubmit={(event) => {
           event.preventDefault();
@@ -118,7 +120,7 @@ function Categorias() {
               Limpar
             </Button>
             <Button type="submit" className="ButtonForm ButtonSubmit">
-              {modelValues.id > 0 ? 'Editar': 'Cadastrar'}
+              {modelValues.id > 0 ? 'Editar' : 'Cadastrar'}
             </Button>
           </ButtonGroup>
         </FormGroup>
@@ -138,8 +140,10 @@ function Categorias() {
               <Table.Row key={value.id}>
                 <Table.Column>{value.titulo}</Table.Column>
                 <Table.Column>{value.descricao}</Table.Column>
-                <Table.Column >
-                  <span className="Colors" style={{ background: value.cor }}>{value.cor} </span>
+                <Table.Column>
+                  <span className="Colors" style={{ background: value.cor }}>
+                    {value.cor}{' '}
+                  </span>
                 </Table.Column>
                 <Table.Column className="ActionsColumn">
                   <Button
@@ -150,7 +154,10 @@ function Categorias() {
                   >
                     Editar
                   </Button>
-                  <Button className="Actions" onClickCapture={(event) => remover(event, value.id)}>
+                  <Button
+                    className="Actions"
+                    onClickCapture={(event) => remover(event, value.id)}
+                  >
                     Remover
                   </Button>
                 </Table.Column>

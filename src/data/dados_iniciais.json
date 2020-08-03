@@ -1,26 +1,120 @@
 {
-    "categorias": [{
-            "id": 1,
-            "titulo": "Mitologia Grega",
-            "descricao": "A História de Poseidon o poderoso Deus dos mares",
-            "cor": "#6BD1FF"
-        },
-        {
-            "id": 2,
-            "titulo": "Doom",
-            "descricao": "Gameplay de Doom",
-            "cor": "#a21010"
-        }
-    ],
-    "videos": [{
-            "categoriaId": 1,
-            "titulo": "O poderoso Deus dos mares",
-            "url": "https://www.youtube.com/watch?v=J_fg5ixpXi0"
-        },
-        {
-            "categoriaId": 1,
-            "titulo": "A História de Poseidon",
-            "url": "https://www.youtube.com/watch?v=syZUHxaBSV4"
-        }
-    ]
+  "categorias": [
+    {
+      "id": 1,
+      "titulo": "Poseidon",
+      "descricao": "A História de Poseidon o poderoso Deus dos mares",
+      "cor": "#404CF2"
+    },
+    {
+      "id": 2,
+      "titulo": "DooM",
+      "descricao": "Gameplay de Doom",
+      "cor": "#bc0101"
+    },
+    {
+      "id": 3,
+      "titulo": "Filmes",
+      "descricao": "Gameplay de Doom",
+      "cor": "#78A343"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "categoriaId": 1,
+      "titulo": "O poderoso Deus dos mares",
+      "url": "https://www.youtube.com/watch?v=J_fg5ixpXi0"
+    },
+    {
+      "id": 2,
+      "categoriaId": 1,
+      "titulo": "A História de Poseidon",
+      "url": "https://www.youtube.com/watch?v=syZUHxaBSV4"
+    },
+    {
+      "id": 3,
+      "categoriaId": 2,
+      "titulo": "Saga DooM",
+      "url": "https://www.youtube.com/watch?v=4ntujGky9O0"
+    },
+    {
+      "id": 4,
+      "categoriaId": 2,
+      "titulo": "DooM Eternal",
+      "url": "https://www.youtube.com/watch?v=TDDGdk3OKeA"
+    },
+    {
+      "categoriaId": 2,
+      "titulo": "A História de Doom",
+      "url": "https://www.youtube.com/watch?v=t84DVLO1L7E",
+      "id": 5
+    },
+    {
+      "categoriaId": 2,
+      "titulo": "A Evolução dos monstros",
+      "url": "https://www.youtube.com/watch?v=a8w8XtCmOkc",
+      "id": 6
+    },
+    {
+      "categoriaId": 2,
+      "titulo": "Trailer DooM Eternal",
+      "url": "https://www.youtube.com/watch?v=_J2YcaVqjCQ",
+      "id": 7
+    },
+    {
+      "categoriaId": 3,
+      "titulo": "DooM - A porta para o inferno (2005)",
+      "url": "https://www.youtube.com/watch?v=5yvEgq0PA9A",
+      "id": 8
+    },
+    {
+      "categoriaId": 3,
+      "titulo": "DooM - Aniquilação (2019)",
+      "url": "https://www.youtube.com/watch?v=AD5lIw7OO9o",
+      "id": 9
+    },
+    {
+      "categoriaId": 2,
+      "titulo": "Música Tema",
+      "url": "https://www.youtube.com/watch?v=MunWSqTgQLs",
+      "id": 10
+    },
+    {
+      "categoriaId": 1,
+      "titulo": "Música Tema - Poseidon | Saint Seya",
+      "url": "https://www.youtube.com/watch?v=HNdMA_SNg1M",
+      "id": 11
+    },
+    {
+      "categoriaId": 1,
+      "titulo": "Música Tema - God of War III",
+      "url": "https://www.youtube.com/watch?v=dmcjo8pGMI0",
+      "id": 12
+    },
+    {
+      "categoriaId": 3,
+      "titulo": "Poseidon (2006)",
+      "url": "https://www.youtube.com/watch?v=wXvubYRnVWE",
+      "id": 13
+    },
+    {
+      "categoriaId": 3,
+      "titulo": "Lego Poseidon",
+      "url": "https://www.youtube.com/watch?v=ko9No8jQhP0",
+      "id": 14
+    },
+    {
+      "categoriaId": 1,
+      "titulo": "Curiosidades",
+      "url": "https://www.youtube.com/watch?v=Meysy6CL4Z8",
+      "id": 15
+    },
+    {
+      "categoriaId": 1,
+      "titulo": "História de Poseidon",
+      "url": "https://www.youtube.com/watch?v=2-VTUyI3w7U",
+      "id": 16
+    }
+  ]
 }

@@ -20,7 +20,7 @@ export default createGlobalStyle`
 *,
 input,
 button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Ubuntu', sans-serif;
     color: var(---white);
     background-color: var(--black);
 }

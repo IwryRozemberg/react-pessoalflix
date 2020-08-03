@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const ContentAreaContainer = styled.section`
   background: transparent;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 5%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -81,6 +80,7 @@ ContentAreaContainer.Title = styled.h2`
 export const BannerMainContainer = styled.section`
   height: 80vh;
   position: relative;
+  margin: -50px -5.5% 0 -5.5%;
   color: #fff;
   background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
   background-size: cover;
@@ -115,7 +115,7 @@ export const BannerMainContainer = styled.section`
 
 export const WatchButton = styled.button`
   box-sizing: border-box;
-  cursor: grab;
+  cursor: pointer;
   padding: 16px 24px;
   font-style: normal;
   font-weight: bold;

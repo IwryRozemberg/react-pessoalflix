@@ -118,7 +118,7 @@ function Categorias() {
               Limpar
             </Button>
             <Button type="submit" className="ButtonForm ButtonSubmit">
-              Cadastrar
+              {modelValues.id > 0 ? 'Editar': 'Cadastrar'}
             </Button>
           </ButtonGroup>
         </FormGroup>
@@ -138,10 +138,8 @@ function Categorias() {
               <Table.Row key={value.id}>
                 <Table.Column>{value.titulo}</Table.Column>
                 <Table.Column>{value.descricao}</Table.Column>
-                <Table.Column
-                  style={{ background: value.cor, color: '#000000' }}
-                >
-                  {value.cor}
+                <Table.Column >
+                  <span className="Colors" style={{ background: value.cor }}>{value.cor} </span>
                 </Table.Column>
                 <Table.Column className="ActionsColumn">
                   <Button

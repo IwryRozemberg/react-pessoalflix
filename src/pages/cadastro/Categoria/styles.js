@@ -28,8 +28,20 @@ export const Table = styled.table`
   border-collapse: collapse;
   border-spacing: 0;
 
-  .ActionsColumn {
+  .ActionsColumn,
+  .Colors {
     display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Colors {
+    color: var(--black);
+    border-radius: 20px;
+    /* height: 100%; */
+    flex: 1;
+    align-items: center;
+    text-transform: uppercase;
   }
 
   .Actions {
@@ -54,7 +66,6 @@ Table.Body = styled.tbody``;
 Table.Row = styled.tr``;
 Table.Column = styled.td`
   padding: 5px 0;
-
 `;
 
 Table.HeaderColumn = styled.th`
@@ -63,11 +74,10 @@ Table.HeaderColumn = styled.th`
   font-size: 20px;
 `;
 
-
 export const ButtonGroup = styled.div`
   flex: 1;
   float: right;
-  
+
   .ButtonForm {
     background: var(--blackLighter);
     color: var(--black);
@@ -82,6 +92,4 @@ export const ButtonGroup = styled.div`
   .ButtonForm + .ButtonForm {
     margin-left: 10px;
   }
-
-
 `;
